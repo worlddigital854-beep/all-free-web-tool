@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>All Free Web Tools</title>
+    <!-- यहाँ अपना Adsterra का पपेंडर (Popunder) कोड चिपका दें -->
+    
     <style>
         body { font-family: sans-serif; background: #0f3460; color: white; padding: 20px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: auto; }
@@ -14,24 +16,29 @@
 <body>
     <h1 style="text-align:center;">All Free Web Tools</h1>
     <div class="grid">
-        <div class="box"><h3>1. Text Counter</h3><textarea placeholder="Paste text here..."></textarea><button>Count</button></div>
-        <div class="box"><h3>2. Password Gen</h3><input type="number" placeholder="Length"><button>Generate</button></div>
-        <div class="box"><h3>3. QR Generator</h3><input type="text" placeholder="Enter URL/Text"><button>Create QR</button></div>
-        <div class="box"><h3>4. BMI Calc</h3><input type="number" placeholder="Height (m)"><input type="number" placeholder="Weight (kg)"><button>Calculate</button></div>
-        <div class="box"><h3>5. Typing Test</h3><button>Start Test</button></div>
-        <div class="box"><h3>6. PDF Converter</h3><input type="file"><button>Convert to PDF</button></div>
-        <div class="box"><h3>7. BP Tracker</h3><input type="number" placeholder="Systolic"><input type="number" placeholder="Diastolic"><button>Save BP</button></div>
-        <div class="box"><h3>8. Sugar Conv</h3><input type="number" placeholder="mg/dL"><button>Convert</button></div>
-        <div class="box"><h3>9. Unit Conv</h3><input type="number" placeholder="Value"><select><option>Kg to Lbs</option><option>M to Ft</option></select><button>Convert</button></div>
-        <div class="box"><h3>10. JSON Formatter</h3><textarea placeholder="Paste JSON..."></textarea><button>Format</button></div>
-        <div class="box"><h3>11. Base64 Encoder</h3><textarea placeholder="Text to encode..."></textarea><button>Encode</button></div>
-        <div class="box"><h3>12. CSS Minifier</h3><textarea placeholder="Paste CSS..."></textarea><button>Minify</button></div>
-        <div class="box"><h3>13. HTML Minifier</h3><textarea placeholder="Paste HTML..."></textarea><button>Minify</button></div>
-        <div class="box"><h3>14. Image Resizer</h3><input type="file" accept="image/*"><button>Resize Image</button></div>
-        <div class="box"><h3>15. Date Calc</h3><input type="date"><button>Calculate Days</button></div>
-        <div class="box"><h3>16. Password Strength</h3><input type="password" placeholder="Type password..."><button>Check</button></div>
-        <div class="box"><h3>17. Meta Tag Gen</h3><input type="text" placeholder="Site Title"><button>Generate</button></div>
-        <div class="box"><h3>18. Video Downloader</h3><input type="url" placeholder="Paste video link..."><button>Download</button></div>
+        <!-- 1. Text Counter -->
+        <div class="box"><h3>1. Text Counter</h3><textarea id="t1" placeholder="Paste text here..."></textarea><button onclick="alert('Word count: ' + document.getElementById('t1').value.split(/\s+/).filter(i=>i).length)">Count</button></div>
+        <!-- 2. Password Gen -->
+        <div class="box"><h3>2. Password Gen</h3><button onclick="alert('Generated: ' + Math.random().toString(36).slice(-8))">Generate</button></div>
+        <!-- 3. QR Generator -->
+        <div class="box"><h3>3. QR Generator</h3><input id="q1" placeholder="Enter URL"><button onclick="window.open('https://api.qrserver.com/v1/create-qr-code/?data='+document.getElementById('q1').value)">Create QR</button></div>
+        <!-- 4. BMI Calc -->
+        <div class="box"><h3>4. BMI Calc</h3><input id="h" placeholder="Height (m)"><input id="w" placeholder="Weight (kg)"><button onclick="alert('BMI: ' + (document.getElementById('w').value / (document.getElementById('h').value**2)).toFixed(1))">Calculate</button></div>
+        <!-- बाकी 14 टूल्स का ढांचा -->
+        <div class="box"><h3>5. Typing Test</h3><button onclick="alert('Coming Soon')">Start</button></div>
+        <div class="box"><h3>6. PDF Converter</h3><input type="file"><button>Convert</button></div>
+        <div class="box"><h3>7. BP Tracker</h3><input type="number" placeholder="Systolic"><input type="number" placeholder="Diastolic"><button>Save</button></div>
+        <div class="box"><h3>8. Sugar Converter</h3><input type="number" placeholder="mg/dL"><button>Convert</button></div>
+        <div class="box"><h3>9. Unit Converter</h3><input type="number" placeholder="Value"><button>Convert</button></div>
+        <div class="box"><h3>10. JSON Formatter</h3><textarea placeholder="JSON here..."></textarea><button>Format</button></div>
+        <div class="box"><h3>11. Base64 Encoder</h3><textarea placeholder="Text here..."></textarea><button>Encode</button></div>
+        <div class="box"><h3>12. CSS Minifier</h3><textarea placeholder="CSS here..."></textarea><button>Minify</button></div>
+        <div class="box"><h3>13. HTML Minifier</h3><textarea placeholder="HTML here..."></textarea><button>Minify</button></div>
+        <div class="box"><h3>14. Image Resizer</h3><input type="file"><button>Resize</button></div>
+        <div class="box"><h3>15. Date Calculator</h3><input type="date"><button>Calculate</button></div>
+        <div class="box"><h3>16. Password Strength</h3><input type="password"><button>Check</button></div>
+        <div class="box"><h3>17. Meta Tag Gen</h3><input type="text" placeholder="Title"><button>Generate</button></div>
+        <div class="box"><h3>18. Video Downloader</h3><input type="url" placeholder="Link..."><button>Download</button></div>
     </div>
 </body>
 </html>
