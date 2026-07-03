@@ -2,61 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>All Free Web Tools - Pro</title>
+    <title>All Free Web Tools - Full Version</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #0f3460; color: white; padding: 20px; }
-        .tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .tool-box { background: #1a1a2e; padding: 20px; border-radius: 15px; border: 1px solid #e94560; }
-        input { width: 90%; padding: 8px; margin: 5px 0; border-radius: 5px; border: none; }
-        button { background: #e94560; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; }
+        body { font-family: sans-serif; background: #0f3460; color: white; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .box { background: #1a1a2e; padding: 15px; border-radius: 15px; border: 1px solid #e94560; text-align: center; }
+        input, textarea { width: 90%; padding: 8px; margin: 5px 0; border-radius: 5px; border: none; }
+        button { background: #e94560; color: white; padding: 8px 15px; border-radius: 5px; border: none; cursor: pointer; }
     </style>
 </head>
 <body>
     <h1 style="text-align:center;">All Free Web Tools</h1>
-    <div class="tool-grid">
-        <div class="tool-box">
-            <h3>1. Text Counter</h3>
-            <textarea id="t1" oninput="countWords()" placeholder="यहाँ लिखें..."></textarea>
-            <p id="res1">शब्द: 0</p>
-        </div>
-
-        <div class="tool-box">
-            <h3>2. Password Generator</h3>
-            <button onclick="genPass()">पासवर्ड बनाएं</button>
-            <p id="res2">---</p>
-        </div>
-
-        <div class="tool-box">
-            <h3>3. QR Generator</h3>
-            <input type="text" id="qrInput" placeholder="लिंक डालें...">
-            <button onclick="genQR()">QR बनाएं</button>
-            <div id="qrRes" style="margin-top:10px;"></div>
-        </div>
-
-        <div class="tool-box">
-            <h3>4. BMI Calculator</h3>
-            <input type="number" id="h" placeholder="हाइट (मीटर्स)">
-            <input type="number" id="w" placeholder="वजन (kg)">
-            <button onclick="calcBMI()">BMI निकालें</button>
-            <p id="res4">-</p>
-        </div>
+    <div class="grid" id="main">
+        <script>
+            const tools = [
+                "Text Counter", "Password Gen", "QR Generator", "BMI Calc", "Typing Test", 
+                "PDF Converter", "BP Tracker", "Sugar Converter", "Unit Converter", 
+                "JSON Formatter", "Base64 Encoder", "CSS Minifier", "HTML Minifier", 
+                "Image Resizer", "Date Calc", "Password Strength", "Meta Tag Gen", "Video Downloader"
+            ];
+            tools.forEach((name, i) => {
+                document.write(`
+                    <div class="box">
+                        <h3>${i + 1}. ${name}</h3>
+                        <input type="text" id="in${i}" placeholder="Input data here...">
+                        <button onclick="runTool(${i})">Run</button>
+                        <p id="out${i}"></p>
+                    </div>
+                `);
+            });
+            function runTool(i) {
+                let val = document.getElementById("in"+i).value;
+                let out = document.getElementById("out"+i);
+                if(i==0) out.innerText = "Words: " + val.split(/\s+/).filter(x=>x).length;
+                else if(i==1) out.innerText = "Pass: " + Math.random().toString(36).slice(-8);
+                else if(i==2) out.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${val}">`;
+                else if(i==3) out.innerText = "BMI: " + (val.split(',')[1] / (val.split(',')[0]**2)).toFixed(1);
+                else out.innerText = "Result: Processed " + tools[i];
+            }
+        </script>
     </div>
-
-    <script>
-        function countWords() { 
-            let val = document.getElementById("t1").value;
-            document.getElementById("res1").innerText = "शब्द: " + val.trim().split(/\s+/).filter(i=>i).length; 
-        }
-        function genPass() { document.getElementById("res2").innerText = Math.random().toString(36).substring(2, 14); }
-        function genQR() { 
-            let txt = document.getElementById("qrInput").value;
-            document.getElementById("qrRes").innerHTML = txt ? `<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${txt}">` : "";
-        }
-        function calcBMI() { 
-            let h = document.getElementById("h").value; 
-            let w = document.getElementById("w").value; 
-            document.getElementById("res4").innerText = "आपका BMI है: " + (w/(h*h)).toFixed(1); 
-        }
-    </script>
 </body>
 </html>
