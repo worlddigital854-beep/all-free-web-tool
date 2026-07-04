@@ -62,18 +62,23 @@
         <div class="card"><h3>Base64 Encode</h3><input id="b64" placeholder="Text"><button onclick="alert(btoa(document.getElementById('b64').value))">Encode</button></div>
         <div class="card"><h3>JSON Format</h3><textarea id="json"></textarea><button onclick="try{document.getElementById('json').value=JSON.stringify(JSON.parse(document.getElementById('json').value),null,4)}catch(e){alert('Error')}">Format</button></div>
 
-        <!-- 11-18: Redirecting Tools -->
-        <div class="card"><h3>Thumbnail</h3><button onclick="window.open('https://youtube.com')">Download</button></div>
-        <div class="card"><h3>Hashtag</h3><button onclick="alert('#trending #viral #social')">Generate</button></div>
-        <div class="card"><h3>Caption</h3><button onclick="alert('Amazing Post! 🔥')">Generate</button></div>
-        <div class="card"><h3>Typing</h3><button onclick="alert('Coming Soon')">Start</button></div>
-        <div class="card"><h3>PDF</h3><button onclick="alert('Redirecting...')">Convert</button></div>
-        <div class="card"><h3>BP Tracker</h3><button onclick="alert('Saved')">Save</button></div>
-        <div class="card"><h3>Sugar</h3><button onclick="alert('Converting')">Convert</button></div>
-        <div class="card"><h3>Video DL</h3><button onclick="window.open('https://en.savefrom.net/')">Download</button></div>
+     <div class="card"><h3>Thumbnail</h3><input id="ytlink" placeholder="Video URL"><button onclick="window.open('https://www.youtube.com/watch?v='+document.getElementById('ytlink').value.split('v=')[1])">Open</button></div>
+        
+        <div class="card"><h3>Hashtag</h3><input id="hash" placeholder="Topic"><button onclick="alert('#'+document.getElementById('hash').value+' #viral #trending #fyp')">Generate</button></div>
+        
+        <div class="card"><h3>Caption</h3><input id="capt" placeholder="Topic"><button onclick="alert('Best '+document.getElementById('capt').value+' of the day! 🔥')">Generate</button></div>
+        
+        <div class="card"><h3>Typing</h3><button onclick="let s=prompt('Type this: Quick brown fox'); if(s=='Quick brown fox') alert('Correct!'); else alert('Try again!');">Start Test</button></div>
+        
+        <div class="card"><h3>PDF</h3><button onclick="alert('Use Online2PDF tool for conversion.'); window.open('https://online2pdf.com/')">Convert</button></div>
+        
+        <div class="card"><h3>BP Tracker</h3><input id="bp" placeholder="Systolic/Diastolic"><button onclick="alert('BP Record Saved: '+document.getElementById('bp').value)">Save</button></div>
+        
+        <div class="card"><h3>Sugar</h3><input id="sug" placeholder="mg/dL"><button onclick="alert('Your Sugar Level: '+document.getElementById('sug').value + ' mg/dL')">Check</button></div>
+        
+        <div class="card"><h3>Video DL</h3><input id="vlink" placeholder="Paste URL"><button onclick="window.open('https://en.savefrom.net/')">Download</button></div>
     </div>
 
-    <!-- Adsterra Footer Trigger -->
     <script type="text/javascript" src="//pl30177250.effectivecpmnetwork.com/e5/f6/28/e5f628835d9dab727aa45b00ec2af2ed.js"></script>
 </body>
 </html>
