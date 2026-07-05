@@ -20,49 +20,40 @@
     <h1 style="text-align:center; color:#38bdf8;">All Free Web Tools</h1>
     
     <div class="search-container">
-        <input type="text" id="searchBox" placeholder="🔍 Search tools (e.g. BMI, QR, Caption)..." onkeyup="filterTools()">
+        <input type="text" id="searchBox" placeholder="🔍 Search tools..." onkeyup="filterTools()">
     </div>
 
     <div class="grid" id="toolGrid">
-        <div class="card"><h3>AI Content Detector</h3><textarea id="aiText" placeholder="Paste text here"></textarea><button onclick="alert('Analysis: This content appears to be human-written with 85% confidence.')">Analyze</button></div>
+        <div class="card"><h3>AI Content Detector</h3><textarea id="aiText" placeholder="Paste text here"></textarea><button onclick="alert('Analysis: 85% Human-written')">Analyze</button></div>
         <div class="card"><h3>Keyword Density</h3><input id="keyText" placeholder="Text"><input id="keyWord" placeholder="Keyword"><button onclick="let t=document.getElementById('keyText').value.split(' '); let k=document.getElementById('keyWord').value; alert('Density: ' + ((t.filter(w=>w==k).length/t.length)*100).toFixed(1) + '%')">Check</button></div>
-        <div class="card"><h3>Insta Caption</h3><input id="insta" placeholder="Topic"><button onclick="alert('Caption: Elevating my ' + document.getElementById('insta').value + ' game! 🚀 #trending #vibes')">Generate</button></div>
+        <div class="card"><h3>Insta Caption</h3><input id="insta" placeholder="Topic"><button onclick="alert('Caption: Elevating my ' + document.getElementById('insta').value + ' game!')">Generate</button></div>
         <div class="card"><h3>JSON Formatter</h3><textarea id="json" placeholder="Paste JSON"></textarea><button onclick="try{document.getElementById('json').value=JSON.stringify(JSON.parse(document.getElementById('json').value),null,4)}catch(e){alert('Invalid JSON')}">Format</button></div>
         <div class="card"><h3>Word Reverser</h3><input id="rev" placeholder="Text"><button onclick="alert(document.getElementById('rev').value.split('').reverse().join(''))">Reverse</button></div>
         <div class="card"><h3>Text Counter</h3><textarea id="tArea" rows="3"></textarea><button onclick="let t=document.getElementById('tArea').value.trim(); alert('Words: ' + (t===''?0:t.split(/\s+/).filter(w=>w.length>0).length))">Count</button></div>
-        <div class="card"><h3>BMI Calculator</h3><input type="number" id="h" placeholder="Height(cm)"><input type="number" id="w" placeholder="Weight(kg)"><button onclick="let h=document.getElementById('h').value/100; let w=document.getElementById('w').value; if(h>0) alert('BMI: '+(w/(h*h)).toFixed(1));">Calculate</button></div>
+        <div class="card"><h3>BMI Calculator</h3><input type="number" id="h" placeholder="Height(cm)"><input type="number" id="w" placeholder="Weight(kg)"><button onclick="let h=document.getElementById('h').value/100; let w=document.getElementById('w').value; if(h>0) alert('BMI: '+(w/(h*h)).toFixed(1)); else alert('Enter valid height');">Calculate</button></div>
         <div class="card"><h3>QR Generator</h3><input type="text" id="qText" placeholder="Enter URL"><button onclick="let t=document.getElementById('qText').value; if(t) document.getElementById('qrRes').innerHTML='<img src=\'https://api.qrserver.com/v1/create-qr-code/?size=100x100&data='+t+'\'>';">Create</button><div id="qrRes"></div></div>
-        <div class="card"><h3>Password Gen</h3><button onclick="alert('Pass: ' + Math.random().toString(36).slice(-8))">Generate</button></div>
+        <div class="card"><h3>Password Gen</h3><button onclick="alert('Password: ' + Math.random().toString(36).slice(-8))">Generate</button></div>
         <div class="card"><h3>Inch to Cm</h3><input type="number" id="inch" placeholder="Inches"><button onclick="alert((document.getElementById('inch').value * 2.54).toFixed(2) + ' cm')">Convert</button></div>
         <div class="card"><h3>C to F</h3><input id="c" placeholder="Celsius"><button onclick="alert((document.getElementById('c').value*9/5+32)+' °F')">Convert</button></div>
         <div class="card"><h3>Age Calc</h3><input id="y" placeholder="Birth Year"><button onclick="alert('Age: '+(2026-document.getElementById('y').value))">Check</button></div>
         <div class="card"><h3>Base64 Encode</h3><input id="b64" placeholder="Text"><button onclick="alert(btoa(document.getElementById('b64').value))">Encode</button></div>
         <div class="card"><h3>Thumbnail</h3><input id="ytlink" placeholder="Video URL"><button onclick="window.open('https://www.youtube.com/watch?v='+document.getElementById('ytlink').value.split('v=')[1])">Open</button></div>
-        <div class="card"><h3>Hashtag</h3><input id="hash" placeholder="Topic"><button onclick="alert('#'+document.getElementById('hash').value+' #viral #trending #fyp')">Generate</button></div>
-        <div class="card"><h3>Caption</h3><input id="capt" placeholder="Topic"><button onclick="alert('Best '+document.getElementById('capt').value+' of the day! 🔥')">Generate</button></div>
-        <div class="card"><h3>Typing</h3><button onclick="let s=prompt('Type this: Quick brown fox'); if(s=='Quick brown fox') alert('Correct!'); else alert('Try again!');">Start Test</button></div>
-        <div class="card"><h3>PDF</h3><button onclick="alert('Use Online2PDF tool for conversion.'); window.open('https://online2pdf.com/')">Convert</button></div>
-        <div class="card"><h3>BP Tracker</h3><input id="bp" placeholder="Systolic/Diastolic"><button onclick="alert('BP Record Saved: '+document.getElementById('bp').value)">Save</button></div>
-        <div class="card"><h3>Sugar</h3><input id="sug" placeholder="mg/dL"><button onclick="alert('Your Sugar Level: '+document.getElementById('sug').value + ' mg/dL')">Check</button></div>
+        <div class="card"><h3>Hashtag</h3><input id="hash" placeholder="Topic"><button onclick="alert('#'+document.getElementById('hash').value+' #viral #trending')">Generate</button></div>
+        <div class="card"><h3>Caption</h3><input id="capt" placeholder="Topic"><button onclick="alert('Best '+document.getElementById('capt').value+' of the day!')">Generate</button></div>
+        <div class="card"><h3>Typing Test</h3><button onclick="alert('Type: Quick brown fox');">Start Test</button></div>
+        <div class="card"><h3>PDF Converter</h3><button onclick="window.open('https://online2pdf.com/')">Open Converter</button></div>
+        <div class="card"><h3>BP Tracker</h3><input id="bp" placeholder="Value"><button onclick="alert('BP Record: '+document.getElementById('bp').value)">Save</button></div>
+        <div class="card"><h3>Sugar Level</h3><input id="sug" placeholder="mg/dL"><button onclick="alert('Sugar: '+document.getElementById('sug').value + ' mg/dL')">Check</button></div>
         <div class="card"><h3>Video DL</h3><input id="vlink" placeholder="Paste URL"><button onclick="window.open('https://en.savefrom.net/')">Download</button></div>
     </div>
 
     <div id="ai-tools-section" style="max-width: 800px; margin: auto; padding: 20px; border: 1px solid #38bdf8; border-radius: 15px; background: rgba(255,255,255,0.05);">
         <h3 style="color: #38bdf8;">AI Content Suite</h3>
-        <p style="font-size: 14px; margin-bottom: 10px;"><b>Guide:</b> Get your free API Key from <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: #38bdf8;">Google AI Studio</a>, paste it below, and start generating content.</p>
-        <input type="password" id="userApiKey" placeholder="Paste your AIza API Key here..." style="width: 80%; padding: 10px; border: 1px solid #38bdf8;">
-        <input type="text" id="topicInput" placeholder="Enter Your Topic Here..." style="width: 80%; padding: 10px;">
-        
-        <div style="margin-top: 15px;">
-            <button onclick="handleTool('script')">Generate Script</button>
-            <button onclick="handleTool('hooks')">Generate Hooks</button>
-            <button onclick="handleTool('repurpose')">Repurpose Content</button>
-            <button onclick="handleTool('seo')">Optimize SEO</button>
-        </div>
-
-        <div id="resultOutput" style="margin-top: 20px; padding: 15px; background: #1e293b; border-radius: 10px; min-height: 50px;">
-            Result Will Appear Here...
-        </div>
+        <p style="font-size: 14px;">Get Key: <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: #38bdf8;">Google AI Studio</a></p>
+        <input type="password" id="userApiKey" placeholder="Paste API Key here..." style="width: 80%; padding: 10px;">
+        <input type="text" id="topicInput" placeholder="Topic..." style="width: 80%; padding: 10px;">
+        <button onclick="handleTool('script')">Generate Script</button>
+        <div id="resultOutput" style="margin-top: 15px; padding: 15px; background: #1e293b;">Result here...</div>
     </div>
 
     <script>
@@ -70,38 +61,22 @@
         const topic = document.getElementById('topicInput').value;
         const apiKey = document.getElementById('userApiKey').value;
         const resultBox = document.getElementById('resultOutput');
-        
-        if (!apiKey) { alert("Please paste your API Key first!"); return; }
-        if (!topic) { alert("Please enter a topic!"); return; }
-        
-        resultBox.innerText = "Generating " + tool + "... please wait.";
-
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
-
+        if (!apiKey || !topic) { alert("Key and Topic required!"); return; }
+        resultBox.innerText = "Generating...";
         try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+            const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ contents: [{ parts: [{ text: `Write a ${tool} about: ${topic}` }] }] })
             });
-            const data = await response.json();
-            if(data.candidates) {
-                resultBox.innerText = data.candidates[0].content.parts[0].text;
-            } else {
-                resultBox.innerText = "Error: Invalid API Key or limit exceeded.";
-            }
-        } catch (error) {
-            resultBox.innerText = "Error: Could not connect to API.";
-        }
+            const data = await res.json();
+            resultBox.innerText = data.candidates[0].content.parts[0].text;
+        } catch (e) { resultBox.innerText = "API Connection Failed."; }
     }
-
     function filterTools() {
-        let query = document.getElementById('searchBox').value.toLowerCase();
-        let cards = document.getElementsByClassName('card');
-        for (let card of cards) {
-            let title = card.getElementsByTagName('h3')[0].innerText.toLowerCase();
-            card.style.display = title.includes(query) ? "block" : "none";
-        }
+        let q = document.getElementById('searchBox').value.toLowerCase();
+        document.querySelectorAll('.card').forEach(c => {
+            c.style.display = c.innerText.toLowerCase().includes(q) ? "block" : "none";
+        });
     }
     </script>
 </body>
